@@ -61,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Container(
             transform: Matrix4.translationValues(0, -40, 0),
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 53),
+              padding: const EdgeInsets.symmetric(horizontal: 53),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
