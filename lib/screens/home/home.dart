@@ -82,8 +82,8 @@ class HomePage extends StatelessWidget {
         actions: [
           Stack(children: [
             Container(
-              margin: EdgeInsets.only(top: 10, right: 20),
-              padding: EdgeInsets.all(4),
+              //margin: EdgeInsets.only(top: 10, right: 20),
+              //padding: EdgeInsets.all(4),
               decoration: BoxDecoration(
                 border: Border.all(color: kGrey.withOpacity(0.3), width: 2),
                 borderRadius: BorderRadius.circular(10),

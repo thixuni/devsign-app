@@ -1,4 +1,5 @@
 import 'package:course_app/constants/colors.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -10,9 +11,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  //String email;
-  //String password;
-  //final_auth = FirebaseAuth.instance;
+  late String email;
+  late String password;
+  final _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +25,8 @@ class _LoginScreenState extends State<LoginScreen> {
           Stack(
             alignment: Alignment.center,
             children: [
-              Container(
-                child: Image.asset(
-                  'assets/images/login-bg-img.png',
-                ),
+              Image.asset(
+                'assets/images/login-bg-img.png',
               ),
               Container(
                 transform: Matrix4.translationValues(0, -140, 0),
@@ -153,13 +152,51 @@ class _LoginScreenState extends State<LoginScreen> {
                   Row(
                     children: [
                       GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => HomePage(),
-                                fullscreenDialog: false,
-                              ));
+                        //async -> Changes the function to an asynchronous function. It runs this function asynchronously in the background
+                        onTap: () async {
+                          try {
+                            await _auth.signInWithEmailAndPassword(
+                                email: email, password: password);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => HomePage(),
+                                  fullscreenDialog: false,
+                                ));
+                          } on FirebaseAuthException catch (err) {
+                            if (err.code == "user-not-found") {
+                              try {
+                                await _auth
+                                    .createUserWithEmailAndPassword(
+                                        email: email, password: password)
+                                    .then((user) => {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    HomePage(),
+                                                fullscreenDialog: false,
+                                              )),
+                                        });
+                              } catch (err) {}
+                            } else {
+                              showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                      title: Text("Error"),
+                                      content: Text(err.message.toString()),
+                                      actions: [
+                                        FlatButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            child: Text("Okay"))
+                                      ],
+                                    );
+                                  });
+                            }
+                          }
                         },
                         child: Container(
                           child: const Text(
