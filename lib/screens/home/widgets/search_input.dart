@@ -10,32 +10,37 @@ class SearchInput extends StatelessWidget {
         Container(
           margin: EdgeInsets.all(25),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: kGrey.withOpacity(0.2), width: 2)),
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(color: kBlue.withOpacity(0.2), width: 1)),
           child: TextField(
             cursorColor: kGrey,
             decoration: InputDecoration(
-                fillColor: kGrey.withOpacity(0.1),
+                fillColor: kLightBlue,
                 filled: true,
                 contentPadding: EdgeInsets.all(18),
                 border: InputBorder.none,
-                hintText: 'Search for courses...',
-                hintStyle: TextStyle(color: kGrey)),
+                hintText: 'Search for Podcasts...',
+                hintStyle: TextStyle(color: kGrey),
+                suffixIcon: Icon(
+                  Icons.search,
+                  color: kBlue,
+                  size: 25,
+                )),
           ),
         ),
-        Positioned(
-          right: 45,
-          top: 35,
-          child: Container(
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-                color: kBlue, borderRadius: BorderRadius.circular(10)),
-            child: Image.asset(
-              'assets/icons/search.png',
-              width: 25,
-            ),
-          ),
-        )
+        // Positioned(
+        //   right: 45,
+        //   top: 35,
+        //   child: Container(
+        //     padding: const EdgeInsets.all(8),
+        //     decoration: BoxDecoration(
+        //         color: kBlue, borderRadius: BorderRadius.circular(10)),
+        //     child: Image.asset(
+        //       'assets/icons/search.png',
+        //       width: 25,
+        //     ),
+        //   ),
+        // )
       ],
     ));
   }

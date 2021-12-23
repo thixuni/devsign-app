@@ -1,8 +1,8 @@
 import 'package:course_app/constants/colors.dart';
+import 'package:course_app/screens/signup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'home/home.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -11,8 +11,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  late String email;
-  late String password;
+  String? email;
+  String? password;
   final _auth = FirebaseAuth.instance;
 
   @override
@@ -65,7 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   const Text(
-                    'Log in to',
+                    'Sign in to',
                     style: TextStyle(
                         color: kBlack,
                         fontWeight: FontWeight.bold,
@@ -156,7 +156,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         onTap: () async {
                           try {
                             await _auth.signInWithEmailAndPassword(
-                                email: email, password: password);
+                                email: email.toString().trim(),
+                                password: password.toString());
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -168,7 +169,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               try {
                                 await _auth
                                     .createUserWithEmailAndPassword(
-                                        email: email, password: password)
+                                        email: email.toString().trim(),
+                                        password: password.toString())
                                     .then((user) => {
                                           Navigator.push(
                                               context,
@@ -217,15 +219,21 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
                   SizedBox(height: 15),
-                  Container(
-                    child: const Text(
-                      "Forgot Password",
-                      style: TextStyle(
-                        color: kGrey,
-                        fontSize: 14,
+                  Row(children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => signup()));
+                      },
+                      child: const Text(
+                        "No Account? Sign up today!",
+                        style: TextStyle(
+                          color: kGrey,
+                          fontSize: 14,
+                        ),
                       ),
                     ),
-                  )
+                  ])
                 ],
               ),
             ),

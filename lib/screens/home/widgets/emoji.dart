@@ -1,5 +1,7 @@
 import 'package:course_app/constants/colors.dart';
+import 'package:course_app/constants/fonts.dart';
 import 'package:flutter/material.dart';
+import 'package:course_app/constants/fonts.dart';
 
 class EmojiText extends StatelessWidget {
   @override
@@ -7,14 +9,11 @@ class EmojiText extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(left: 25),
       child: RichText(
-          text: const TextSpan(children: [
+          text: TextSpan(children: [
         TextSpan(
-            text: 'Let\s boost your\nbrain power',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 26,
-              color: kBlack,
-            )),
+          text: 'Let\s boost your\nbrain power',
+          style: kMainTitleStyle,
+        ),
         TextSpan(
             text: ' 🌟',
             style: TextStyle(

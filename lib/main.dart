@@ -1,4 +1,7 @@
-import 'package:course_app/screens/login.dart';
+import 'package:course_app/screens/home/home.dart';
+import 'package:course_app/screens/podcast/podcast.dart';
+import 'package:course_app/screens/signin.dart';
+import 'package:course_app/screens/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -22,7 +25,8 @@ class MyApp extends StatelessWidget {
     );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      theme: ThemeData(fontFamily: 'Poppins'),
+      home: HomePage(),
     );
   }
 }

@@ -1,16 +1,40 @@
 import 'package:course_app/constants/colors.dart';
+import 'package:course_app/screens/courses/course.dart';
 import 'package:course_app/screens/home/widgets/active_course.dart';
 import 'package:course_app/screens/home/widgets/emoji.dart';
 import 'package:course_app/screens/home/widgets/featured_courses.dart';
 import 'package:course_app/screens/home/widgets/search_input.dart';
+import 'package:course_app/screens/podcast/podcast.dart';
+import 'package:course_app/screens/profile/profile.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+
+  static List<Widget> _viewList = [
+    HomePage(),
+    CoursesPage(),
+    PodcastPage(),
+    ProfilePage(),
+  ];
+
+  onTappedItem(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(),
       body: SingleChildScrollView(
+        //child: _viewList.elementAt(_selectedIndex),
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
@@ -31,41 +55,35 @@ class HomePage extends StatelessWidget {
       backgroundColor: kBackgroundColor,
       showSelectedLabels: false,
       showUnselectedLabels: false,
+      currentIndex: _selectedIndex,
+      unselectedItemColor: kBlack,
+      selectedItemColor: kBlue,
+      onTap: onTappedItem,
       items: [
         BottomNavigationBarItem(
-            label: 'home',
-            icon: Container(
-              padding: EdgeInsets.only(bottom: 5),
-              decoration: const BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                color: kBlue,
-                width: 2,
-              ))),
-              child: const Text(
-                'Home',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            )),
+          label: 'home',
+          icon: Icon(
+            Icons.home,
+            size: 25,
+          ),
+        ),
         BottomNavigationBarItem(
             label: 'explore',
-            icon: Image.asset(
-              'assets/icons/avatar.png',
-              width: 20,
+            icon: Icon(
+              Icons.school,
+              size: 25,
             )),
         BottomNavigationBarItem(
             label: 'listen',
-            icon: Image.asset(
-              'assets/icons/avatar.png',
-              width: 20,
+            icon: Icon(
+              Icons.headset,
+              size: 25,
             )),
         BottomNavigationBarItem(
             label: 'profile',
-            icon: Image.asset(
-              'assets/icons/avatar.png',
-              width: 20,
+            icon: Icon(
+              Icons.manage_accounts_sharp,
+              size: 25,
             )),
       ],
     );
@@ -73,7 +91,7 @@ class HomePage extends StatelessWidget {
 
   AppBar buildAppBar() {
     return AppBar(
-        backgroundColor: kBlack,
+        backgroundColor: kBackgroundColor,
         elevation: 0,
         title: const Text(
           'Hello Thisuni',
@@ -82,8 +100,8 @@ class HomePage extends StatelessWidget {
         actions: [
           Stack(children: [
             Container(
-              //margin: EdgeInsets.only(top: 10, right: 20),
-              //padding: EdgeInsets.all(4),
+              margin: EdgeInsets.only(top: 10, right: 20),
+              padding: EdgeInsets.all(4),
               decoration: BoxDecoration(
                 border: Border.all(color: kGrey.withOpacity(0.3), width: 2),
                 borderRadius: BorderRadius.circular(10),
