@@ -4,7 +4,7 @@ import 'package:course_app/screens/home/widgets/active_course.dart';
 import 'package:course_app/screens/home/widgets/emoji.dart';
 import 'package:course_app/screens/home/widgets/featured_courses.dart';
 import 'package:course_app/screens/home/widgets/search_input.dart';
-import 'package:course_app/screens/podcast/podcast.dart';
+import 'package:course_app/screens/listen/listen.dart';
 import 'package:course_app/screens/profile/profile.dart';
 import 'package:flutter/material.dart';
 

@@ -1,6 +1,5 @@
-import 'package:course_app/model/course.dart';
+import 'package:course_app/screens/courses/course-files.dart';
 import 'package:flutter/material.dart';
-
 import 'category_title.dart';
 import 'course_item.dart';
 

@@ -74,6 +74,7 @@ flutter:
     - assets/images/
     - assets/podcast/
     - assets/fonts/
+    - assets/audioFiles/
 
   fonts:
     - family: Poppins

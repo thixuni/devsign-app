@@ -1,7 +1,6 @@
 import 'package:course_app/constants/colors.dart';
-import 'package:course_app/model/module.dart';
+import 'package:course_app/screens/courses/module.dart';
 import 'package:flutter/material.dart';
-
 import 'course_module.dart';
 
 class CourseProgress extends StatelessWidget {

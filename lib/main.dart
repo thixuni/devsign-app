@@ -1,5 +1,5 @@
 import 'package:course_app/screens/home/home.dart';
-import 'package:course_app/screens/podcast/podcast.dart';
+import 'package:course_app/screens/listen/listen.dart';
 import 'package:course_app/screens/signin.dart';
 import 'package:course_app/screens/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Poppins'),
-      home: HomePage(),
+      home: PodcastPage(),
     );
   }
 }
