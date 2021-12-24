@@ -59,7 +59,7 @@ class CustomAppBar extends StatelessWidget {
               child: IconButton(
                   icon: Icon(
                     Icons.arrow_back_ios,
-                    color: Colors.white,
+                    color: kBlue,
                   ),
                   iconSize: 20,
                   onPressed: () => Navigator.of(context).pop()),

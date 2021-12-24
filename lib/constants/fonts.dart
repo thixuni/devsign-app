@@ -22,6 +22,13 @@ var kSecTitleStyle = TextStyle(
     fontFamily: 'Poppins',
     decoration: TextDecoration.none);
 
+var kSecTitleStyleBold = TextStyle(
+    fontSize: 20.0,
+    fontWeight: FontWeight.bold,
+    color: kBlack,
+    fontFamily: 'Poppins',
+    decoration: TextDecoration.none);
+
 var kTertiaryTitleStyle = TextStyle(
     fontSize: 18.0,
     color: kBlack,
@@ -36,7 +43,7 @@ var kPrimaryText = TextStyle(
 
 var kPrimaryTextBold = TextStyle(
     fontSize: 16.0,
-    fontWeight: FontWeight.w800,
+    fontWeight: FontWeight.w600,
     color: kBlack,
     fontFamily: 'Poppins',
     decoration: TextDecoration.none);

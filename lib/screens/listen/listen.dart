@@ -2,6 +2,7 @@ import 'package:course_app/constants/colors.dart';
 import 'package:course_app/constants/fonts.dart';
 import 'package:course_app/screens/listen/audio-files.dart';
 import 'package:course_app/screens/listen/widgets/inspiration-list.dart';
+import 'package:course_app/screens/listen/widgets/play_view.dart';
 import 'package:course_app/screens/listen/widgets/recommended-list.dart';
 import 'package:flutter/material.dart';
 
@@ -89,7 +90,15 @@ class PodcastPage extends StatelessWidget {
               physics: BouncingScrollPhysics(),
               itemBuilder: (context, index) {
                 var recommend = RecList[index];
-                return RecommendedList(podcast: recommend);
+                return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  PlayView(podcast: recommend)));
+                    },
+                    child: RecommendedList(podcast: recommend));
               }),
         ),
         SizedBox(height: 40.0),
@@ -117,7 +126,14 @@ class PodcastPage extends StatelessWidget {
                 physics: ScrollPhysics(),
                 itemBuilder: (context, index) {
                   var insp = Inspiration[index];
-                  return InspirationList(podcast: insp);
+                  return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PlayView(podcast: insp)));
+                      },
+                      child: InspirationList(podcast: insp));
                 }))
       ],
     )));

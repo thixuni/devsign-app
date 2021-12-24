@@ -13,7 +13,7 @@ class InspirationList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         elevation: 6.0,
-        shadowColor: kGrey,
+        shadowColor: kLightBlue,
         margin: EdgeInsets.symmetric(horizontal: 18.0, vertical: 8.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15.0),
@@ -31,6 +31,9 @@ class InspirationList extends StatelessWidget {
                   image: DecorationImage(
                       image: AssetImage(podcast.image), fit: BoxFit.cover),
                 )),
+            SizedBox(
+              width: 10,
+            ),
             Expanded(
                 child: Padding(
               padding: EdgeInsets.all(8.0),
@@ -50,10 +53,16 @@ class InspirationList extends StatelessWidget {
                         podcast.genre,
                         style: kTertiaryText.copyWith(color: kBlue),
                       )),
+                  SizedBox(
+                    height: 5,
+                  ),
                   Text(
                     podcast.title,
                     overflow: TextOverflow.ellipsis,
                     style: kPrimaryTextBold,
+                  ),
+                  SizedBox(
+                    height: 5,
                   ),
                   Text("By ${podcast.artist}",
                       overflow: TextOverflow.ellipsis, style: kSecText)

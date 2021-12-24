@@ -102,15 +102,30 @@ class _HomePageState extends State<HomePage> {
             Container(
               margin: EdgeInsets.only(top: 10, right: 20),
               padding: EdgeInsets.all(4),
-              decoration: BoxDecoration(
-                border: Border.all(color: kGrey.withOpacity(0.3), width: 2),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Image.asset(
-                'assets/icons/notification.png',
-                width: 25,
-              ),
-            ),
+              child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 0),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                          icon: Icon(
+                            Icons.notifications,
+                            //size: 40,
+                            color: kGrey,
+                          ),
+                          onPressed: () {},
+                        ),
+                        IconButton(
+                          icon: Icon(
+                            Icons.wb_sunny,
+                            //size: 40,
+                            color: kGrey,
+                          ),
+                          onPressed: () {},
+                        ),
+                      ])),
+            )
+
             //The notification alert circle will be here
           ])
         ]);
