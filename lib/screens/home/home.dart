@@ -1,5 +1,6 @@
 import 'package:course_app/constants/colors.dart';
 import 'package:course_app/screens/courses/course.dart';
+import 'package:course_app/screens/custom_navbar.dart';
 import 'package:course_app/screens/home/widgets/active_course.dart';
 import 'package:course_app/screens/home/widgets/emoji.dart';
 import 'package:course_app/screens/home/widgets/featured_courses.dart';
@@ -14,21 +15,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 0;
-
-  static List<Widget> _viewList = [
-    HomePage(),
-    CoursesPage(),
-    PodcastPage(),
-    ProfilePage(),
-  ];
-
-  onTappedItem(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,47 +31,7 @@ class _HomePageState extends State<HomePage> {
               ActiveCourse(),
             ]),
       ),
-      bottomNavigationBar: buildBottomNavigationBar(),
-    );
-  }
-
-  BottomNavigationBar buildBottomNavigationBar() {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      backgroundColor: kBackgroundColor,
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
-      currentIndex: _selectedIndex,
-      unselectedItemColor: kBlack,
-      selectedItemColor: kBlue,
-      onTap: onTappedItem,
-      items: [
-        BottomNavigationBarItem(
-          label: 'home',
-          icon: Icon(
-            Icons.home,
-            size: 25,
-          ),
-        ),
-        BottomNavigationBarItem(
-            label: 'explore',
-            icon: Icon(
-              Icons.school,
-              size: 25,
-            )),
-        BottomNavigationBarItem(
-            label: 'listen',
-            icon: Icon(
-              Icons.headset,
-              size: 25,
-            )),
-        BottomNavigationBarItem(
-            label: 'profile',
-            icon: Icon(
-              Icons.manage_accounts_sharp,
-              size: 25,
-            )),
-      ],
+      // bottomNavigationBar: buildBottomNavigationBar(),
     );
   }
 

@@ -2,7 +2,7 @@ import 'package:course_app/screens/courses/course-files.dart';
 import 'package:flutter/material.dart';
 import 'course_desc.dart';
 import 'course_progress.dart';
-import '../../custom_app_bar.dart';
+import 'course_app_bar.dart';
 
 class DetailPage extends StatelessWidget {
   final Course course;

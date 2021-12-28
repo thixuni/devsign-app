@@ -50,7 +50,14 @@ var kPrimaryTextBold = TextStyle(
 
 var kSecText = TextStyle(
     fontSize: 14.0,
-    color: kGrey,
+    color: kBlack,
+    fontFamily: 'Poppins',
+    decoration: TextDecoration.none);
+
+var kSecTextBold = TextStyle(
+    fontSize: 14.0,
+    fontWeight: FontWeight.w800,
+    color: kBlack,
     fontFamily: 'Poppins',
     decoration: TextDecoration.none);
 

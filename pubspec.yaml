@@ -47,6 +47,9 @@ dependencies:
   #podcast
   flutter_sound: ^8.4.2
 
+  #bottom navigation bar
+  bottom_navy_bar: ^6.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

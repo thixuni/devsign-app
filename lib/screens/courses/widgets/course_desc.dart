@@ -1,4 +1,5 @@
 import 'package:course_app/constants/colors.dart';
+import 'package:course_app/constants/fonts.dart';
 import 'package:course_app/screens/courses/course-files.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class CourseDesc extends StatelessWidget {
             ),
             Text(
               course.authorName,
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: kSecTextBold.copyWith(color: kGrey),
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 15),
@@ -30,34 +31,25 @@ class CourseDesc extends StatelessWidget {
             ),
             Icon(
               Icons.access_time_filled,
-              color: kBlue,
+              color: kGrey,
               size: 30,
             ),
             SizedBox(
               width: 5,
             ),
-            const Text(
+            Text(
               '2h 22min',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 14,
-                color: kGrey,
-              ),
-            )
+              style: kSecTextBold.copyWith(color: kGrey),
+            ),
           ]),
           SizedBox(
             height: 10,
           ),
-          Text(course.courseTitle,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: kBlack,
-              )),
+          Text(course.courseTitle, style: kSecTitleStyleBold),
           SizedBox(height: 10),
           Text(
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit sollicitudin enim, eget congue mi mollis in. Vestibulum lacus leo, pulvinar a magna elementum, elementum malesuada purus.",
-            style: TextStyle(wordSpacing: 2, color: kGrey, fontSize: 14),
+            style: kSecText,
           )
         ],
       ),

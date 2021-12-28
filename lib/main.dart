@@ -1,5 +1,7 @@
+import 'package:course_app/screens/custom_navbar.dart';
 import 'package:course_app/screens/home/home.dart';
 import 'package:course_app/screens/listen/listen.dart';
+
 import 'package:course_app/screens/profile/profile.dart';
 import 'package:course_app/screens/signin.dart';
 import 'package:course_app/screens/signup.dart';
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       //How to add the dark theme here?
       theme: ThemeData(fontFamily: 'Poppins'),
-      home: ProfilePage(),
+      home: NavBar(),
     );
   }
 }

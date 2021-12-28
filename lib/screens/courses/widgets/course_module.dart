@@ -1,5 +1,6 @@
 import 'package:course_app/constants/colors.dart';
-import 'package:course_app/screens/courses/module.dart';
+import 'package:course_app/constants/fonts.dart';
+import 'package:course_app/screens/courses/widgets/module.dart';
 import 'package:flutter/material.dart';
 
 class CourseModules extends StatelessWidget {
@@ -64,10 +65,7 @@ class CourseModules extends StatelessWidget {
                     children: [
                       Text(
                         module.title,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: kGrey,
-                        ),
+                        style: kSecTextBold.copyWith(color: kGrey),
                       ),
                       const Icon(
                         Icons.more_horiz,
@@ -77,15 +75,8 @@ class CourseModules extends StatelessWidget {
                 const SizedBox(
                   height: 5,
                 ),
-                Text(
-                  module.desc,
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: kBlack.withOpacity(0.7),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 15),
+                Text(module.desc, style: kPrimaryTextBold),
+                SizedBox(height: 8),
                 Row(
                   children: [
                     buildButton(Icons.access_time_filled, module.time,

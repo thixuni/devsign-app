@@ -6,23 +6,13 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var profileHeader = Column(children: <Widget>[
-      SizedBox(
-        height: 30.0,
-      ),
+      // SizedBox(
+      //   height: 10.0,
+      // ),
       Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SizedBox(
-              width: 0,
-            ),
-            IconButton(
-                icon: Icon(
-                  Icons.arrow_back_rounded,
-                  color: kBlue,
-                ),
-                iconSize: 30,
-                onPressed: () => Navigator.of(context).pop()),
             Container(
               height: 140.0,
               width: 140.0,
@@ -51,13 +41,6 @@ class ProfilePage extends StatelessWidget {
                 ],
               ),
             ),
-            IconButton(
-                icon: Icon(
-                  Icons.wb_sunny_outlined,
-                  color: kBlue,
-                ),
-                iconSize: 30,
-                onPressed: () => Navigator.of(context).pop()),
             SizedBox(
               width: 0,
             ),
@@ -103,7 +86,7 @@ class ProfilePage extends StatelessWidget {
         ],
       )),
       Container(
-        transform: Matrix4.translationValues(0, -80, 0),
+        transform: Matrix4.translationValues(0, -30, 0),
         height: 40.0,
         width: 200.0,
         decoration: BoxDecoration(

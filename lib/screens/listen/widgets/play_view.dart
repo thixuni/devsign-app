@@ -34,13 +34,6 @@ class _PlayViewState extends State<PlayView> {
           IconButton(
             onPressed: () => Navigator.pop(context),
             icon: Icon(
-              Icons.tune,
-              color: kBlue,
-            ),
-          ),
-          IconButton(
-            onPressed: () => Navigator.pop(context),
-            icon: Icon(
               Icons.more_vert,
               color: kBlue,
             ),
@@ -93,17 +86,6 @@ class _PlayViewState extends State<PlayView> {
                       });
                     }
                   },
-                ),
-                SizedBox(
-                  width: 15.0,
-                ),
-                IconButton(
-                  icon: Icon(
-                    Icons.mode_comment_outlined,
-                    size: 25,
-                    color: kBlue,
-                  ),
-                  onPressed: () {},
                 ),
                 SizedBox(
                   width: 15.0,
@@ -164,7 +146,7 @@ class _PlayViewState extends State<PlayView> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
-                    icon: Icon(Icons.fast_rewind_outlined, size: 40),
+                    icon: Icon(Icons.fast_rewind_rounded, size: 40),
                     onPressed: () {},
                   ),
                   Spacer(),
@@ -198,7 +180,7 @@ class _PlayViewState extends State<PlayView> {
                   ),
                   Spacer(),
                   IconButton(
-                    icon: Icon(Icons.fast_forward_outlined, size: 40),
+                    icon: Icon(Icons.fast_forward_rounded, size: 40),
                     onPressed: () {},
                   ),
                 ],

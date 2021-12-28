@@ -24,9 +24,10 @@ class PodcastPage extends StatelessWidget {
                     text: TextSpan(
                   children: [
                     TextSpan(
-                      text: "Listen to Podcasts",
+                      text: "Get some Inspiration\nto study",
                       style: kMainTitleStyle,
-                    )
+                    ),
+                    TextSpan(text: ' 🎧', style: kPrimaryTitleStyle)
                   ],
                 ))
               ],
