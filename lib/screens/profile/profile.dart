@@ -50,7 +50,7 @@ class ProfilePage extends StatelessWidget {
       ),
       Text(
         'Thisuni Gunawardena',
-        style: kSecTitleStyleBold,
+        style: kSecTitleBold,
       ),
       Text(
         'thisu.chamathka@gmail.com',

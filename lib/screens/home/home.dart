@@ -1,12 +1,13 @@
 import 'package:course_app/constants/colors.dart';
 import 'package:course_app/screens/courses/course.dart';
 import 'package:course_app/screens/custom_navbar.dart';
-import 'package:course_app/screens/home/widgets/active_course.dart';
+import 'package:course_app/widgets/active_course.dart';
 import 'package:course_app/screens/home/widgets/emoji.dart';
 import 'package:course_app/screens/home/widgets/featured_courses.dart';
-import 'package:course_app/screens/home/widgets/search_input.dart';
+import 'package:course_app/widgets/search_input.dart';
 import 'package:course_app/screens/listen/listen.dart';
 import 'package:course_app/screens/profile/profile.dart';
+import 'package:course_app/widgets/total_points.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -27,8 +28,9 @@ class _HomePageState extends State<HomePage> {
             children: [
               EmojiText(),
               SearchInput(),
-              FeaturedCourses(),
+              TotalPoints(),
               ActiveCourse(),
+              FeaturedCourses(),
             ]),
       ),
       // bottomNavigationBar: buildBottomNavigationBar(),

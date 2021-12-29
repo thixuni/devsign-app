@@ -12,9 +12,9 @@ class EmojiText extends StatelessWidget {
           text: TextSpan(children: [
         TextSpan(
           text: 'Let\s boost your\nbrain power',
-          style: kMainTitleStyle,
+          style: kMainTitle,
         ),
-        TextSpan(text: ' 🌟', style: kPrimaryTitleStyle)
+        TextSpan(text: ' 🌟', style: kPrimaryTitleBold)
       ])),
     );
   }

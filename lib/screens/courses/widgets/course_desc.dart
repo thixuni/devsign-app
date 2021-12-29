@@ -45,7 +45,7 @@ class CourseDesc extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          Text(course.courseTitle, style: kSecTitleStyleBold),
+          Text(course.courseTitle, style: kSecTitleBold),
           SizedBox(height: 10),
           Text(
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit sollicitudin enim, eget congue mi mollis in. Vestibulum lacus leo, pulvinar a magna elementum, elementum malesuada purus.",

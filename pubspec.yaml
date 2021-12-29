@@ -50,6 +50,9 @@ dependencies:
   #bottom navigation bar
   bottom_navy_bar: ^6.0.0
 
+  #other
+  get: ^4.6.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

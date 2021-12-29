@@ -1,7 +1,10 @@
 import 'package:course_app/constants/colors.dart';
+import 'package:course_app/constants/fonts.dart';
 import 'package:course_app/screens/signup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'home/home.dart';
 
@@ -32,13 +35,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 transform: Matrix4.translationValues(0, -140, 0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text(
                       'Learn to\ndesign and code apps',
-                      style: TextStyle(
-                          fontSize: 26,
-                          color: kLightBlue,
-                          fontWeight: FontWeight.bold),
+                      style: kMainTitle.copyWith(color: kWhite),
                       textAlign: TextAlign.center,
                     ),
                     SizedBox(
@@ -46,10 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     Text(
                       'Complete courses in your own pace\n and get the best knowledge!',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: kLightBlue,
-                      ),
+                      style: kSecText.copyWith(color: kWhite),
                       textAlign: TextAlign.center,
                     ),
                   ],
@@ -64,20 +61,10 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const Text(
-                    'Sign in to',
-                    style: TextStyle(
-                        color: kBlack,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
-                  ),
-                  const Text(
-                    'Start Learning',
-                    style: TextStyle(
-                        color: kBlue,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
-                  ),
+                  Text('Sign in to',
+                      style: kSecTitleBold.copyWith(color: kBlack)),
+                  Text('Start Learning',
+                      style: kSecTitleBold.copyWith(color: kPink)),
                   SizedBox(height: 20),
                   Container(
                     height: 150,
@@ -85,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: [
                         Container(
                           decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: kWhite,
                               borderRadius: BorderRadius.circular(14),
                               boxShadow: const [
                                 BoxShadow(
@@ -95,7 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 )
                               ]),
                           child: Column(
-                            children: const [
+                            children: [
                               //email address text field
                               Padding(
                                 padding: EdgeInsets.only(
@@ -111,8 +98,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                       border: InputBorder.none,
                                       //placeholder text style
                                       labelText: "Email Address",
-                                      hintStyle: TextStyle(
-                                          fontSize: 15, color: kGrey)),
+                                      hintStyle:
+                                          kSecText.copyWith(color: kGrey)),
                                   //typing text style
                                   style: TextStyle(color: kBlack),
                                 ),
@@ -134,8 +121,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                       border: InputBorder.none,
                                       //placeholder text style
                                       labelText: "Password",
-                                      hintStyle: TextStyle(
-                                          fontSize: 15, color: kGrey)),
+                                      hintStyle:
+                                          kSecText.copyWith(color: kGrey)),
                                   //typing text style
                                   style: TextStyle(color: kBlack),
                                 ),
@@ -201,17 +188,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           }
                         },
                         child: Container(
-                          child: const Text(
+                          child: Text(
                             'Login',
-                            style: TextStyle(color: Colors.white),
+                            style: kPrimaryTextBold.copyWith(color: kWhite),
                           ),
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(14),
-                              gradient: const LinearGradient(colors: [
-                                Color(0xFF75B8FC),
-                                Color(0xFF0180FF)
-                              ])),
+                              color: kBlue),
                           height: 47,
                           width: MediaQuery.of(context).size.width * 0.3,
                         ),
@@ -219,21 +203,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
                   SizedBox(height: 15),
-                  Row(children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => signup()));
-                      },
-                      child: const Text(
-                        "No Account? Sign up today!",
-                        style: TextStyle(
-                          color: kGrey,
-                          fontSize: 14,
-                        ),
-                      ),
-                    ),
-                  ])
+                  RichText(
+                    text: TextSpan(
+                        text: "New to DeVsign? ",
+                        style: kSecText.copyWith(color: kBlack),
+                        children: [
+                          TextSpan(
+                              text: "Create Account!",
+                              style: kSecTextBold.copyWith(color: kPink),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () => Get.to(() => SignUpScreen()))
+                        ]),
+                  )
                 ],
               ),
             ),

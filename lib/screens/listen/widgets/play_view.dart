@@ -58,7 +58,7 @@ class _PlayViewState extends State<PlayView> {
             SizedBox(
               height: 35.0,
             ),
-            Text(widget.podcast.title, style: kSecTitleStyleBold),
+            Text(widget.podcast.title, style: kSecTitleBold),
             Text(
               widget.podcast.artist,
               style: kSecText,

@@ -4,6 +4,7 @@ import 'package:course_app/screens/listen/audio-files.dart';
 import 'package:course_app/screens/listen/widgets/inspiration-list.dart';
 import 'package:course_app/screens/listen/widgets/play_view.dart';
 import 'package:course_app/screens/listen/widgets/recommended-list.dart';
+import 'package:course_app/widgets/search_input.dart';
 import 'package:flutter/material.dart';
 
 class PodcastPage extends StatelessWidget {
@@ -25,39 +26,16 @@ class PodcastPage extends StatelessWidget {
                   children: [
                     TextSpan(
                       text: "Get some Inspiration\nto study",
-                      style: kMainTitleStyle,
+                      style: kMainTitle,
                     ),
-                    TextSpan(text: ' 🎧', style: kPrimaryTitleStyle)
+                    TextSpan(text: ' 🎧', style: kPrimaryTitleBold)
                   ],
                 ))
               ],
             ),
           ),
         ),
-        // SizedBox(
-        //   height: 20,
-        // ),
-        Container(
-          margin: EdgeInsets.all(25),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: kBlue.withOpacity(0.2), width: 1)),
-          child: const TextField(
-            cursorColor: kBlue,
-            decoration: InputDecoration(
-                fillColor: kLightBlue,
-                filled: true,
-                contentPadding: EdgeInsets.all(18),
-                border: InputBorder.none,
-                hintText: 'Search for Podcasts...',
-                hintStyle: TextStyle(color: kGrey),
-                suffixIcon: Icon(
-                  Icons.search,
-                  color: kBlue,
-                  size: 25,
-                )),
-          ),
-        ),
+        SearchInput(),
         SizedBox(
           height: 10,
         ),
@@ -118,7 +96,6 @@ class PodcastPage extends StatelessWidget {
                 ),
               ],
             )),
-
         Container(
             child: ListView.builder(
                 itemCount: Inspiration.length,
