@@ -47,7 +47,7 @@ class CustomAppBar extends StatelessWidget {
                 )),
           ),
           Positioned(
-            top: MediaQuery.of(context).padding.top,
+            top: 75,
             left: 25,
             child: Container(
               padding: EdgeInsets.only(left: 5),
@@ -66,7 +66,7 @@ class CustomAppBar extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: MediaQuery.of(context).padding.top,
+            top: 75,
             right: 25,
             child: Container(
               height: 50,

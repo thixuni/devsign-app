@@ -13,26 +13,27 @@ class PodcastPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-            child: Column(
+        body: SafeArea(
+            child: SingleChildScrollView(
+                child: Column(
       children: [
-        SafeArea(
-          child: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 18.0),
-            child: Row(
-              children: [
-                RichText(
-                    text: TextSpan(
-                  children: [
-                    TextSpan(
-                      text: "Get some Inspiration\nto study",
-                      style: kMainTitle,
-                    ),
-                    TextSpan(text: ' 🎧', style: kPrimaryTitleBold)
-                  ],
-                ))
-              ],
-            ),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 18.0),
+          child: Row(
+            children: [
+              Container(
+                  transform: Matrix4.translationValues(0, 10, 0),
+                  child: RichText(
+                      text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: "Get some Inspiration\nto study",
+                        style: kMainTitle,
+                      ),
+                      TextSpan(text: ' 🎧', style: kPrimaryTitleBold)
+                    ],
+                  )))
+            ],
           ),
         ),
         SearchInput(),
@@ -44,12 +45,7 @@ class PodcastPage extends StatelessWidget {
           child: Row(
             children: [
               Text(
-                "Recommended for you",
-                style: kSecText,
-              ),
-              Spacer(),
-              Text(
-                "View All",
+                "Popular Today",
                 style: kSecText,
               ),
             ],
@@ -114,6 +110,6 @@ class PodcastPage extends StatelessWidget {
                       child: InspirationList(podcast: insp));
                 }))
       ],
-    )));
+    ))));
   }
 }

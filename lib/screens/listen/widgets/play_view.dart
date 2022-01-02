@@ -19,9 +19,9 @@ class _PlayViewState extends State<PlayView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kBackgroundColor,
+      backgroundColor: kLightBackground,
       appBar: AppBar(
-        backgroundColor: kBackgroundColor,
+        backgroundColor: kLightBackground,
         elevation: 0,
         leading: IconButton(
             icon: Icon(

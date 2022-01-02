@@ -1,14 +1,12 @@
+import 'package:course_app/app_theme/theme_service.dart';
 import 'package:course_app/constants/colors.dart';
-import 'package:course_app/screens/courses/course.dart';
-import 'package:course_app/screens/custom_navbar.dart';
 import 'package:course_app/widgets/active_course.dart';
 import 'package:course_app/screens/home/widgets/emoji.dart';
 import 'package:course_app/screens/home/widgets/featured_courses.dart';
 import 'package:course_app/widgets/search_input.dart';
-import 'package:course_app/screens/listen/listen.dart';
-import 'package:course_app/screens/profile/profile.dart';
 import 'package:course_app/widgets/total_points.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -16,22 +14,30 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool isClicked = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(),
       body: SingleChildScrollView(
-        //child: _viewList.elementAt(_selectedIndex),
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
+        child: SafeArea(
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
               EmojiText(),
               SearchInput(),
               TotalPoints(),
+              SizedBox(
+                height: 10,
+              ),
               ActiveCourse(),
+              SizedBox(
+                height: 10,
+              ),
               FeaturedCourses(),
-            ]),
+            ])),
       ),
       // bottomNavigationBar: buildBottomNavigationBar(),
     );
@@ -39,7 +45,7 @@ class _HomePageState extends State<HomePage> {
 
   AppBar buildAppBar() {
     return AppBar(
-        backgroundColor: kBackgroundColor,
+        backgroundColor: Theme.of(context).backgroundColor,
         elevation: 0,
         title: const Text(
           'Hello Thisuni',
@@ -59,17 +65,29 @@ class _HomePageState extends State<HomePage> {
                           icon: Icon(
                             Icons.notifications,
                             //size: 40,
-                            color: kGrey,
+                            color: kPink,
                           ),
                           onPressed: () {},
                         ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.wb_sunny,
-                            //size: 40,
-                            color: kGrey,
+                        GestureDetector(
+                          child: IconButton(
+                            icon: Icon(
+                              (!isClicked) ? Icons.dark_mode : Icons.wb_sunny,
+                              color: Theme.of(context).iconTheme.color,
+                            ),
+                            onPressed: () {
+                              if (isClicked == true) {
+                                setState(() {
+                                  isClicked = false;
+                                });
+                              } else {
+                                setState(() {
+                                  isClicked = true;
+                                });
+                              }
+                              ThemeService().changeThemeMode();
+                            },
                           ),
-                          onPressed: () {},
                         ),
                       ])),
             )

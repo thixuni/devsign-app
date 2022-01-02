@@ -35,7 +35,7 @@ class Module {
       Module(
           kLightBlue,
           kBlue,
-          kBackgroundColor,
+          kLightBackground,
           Icons.play_arrow_rounded,
           'Module 1',
           kBlue,
@@ -48,7 +48,7 @@ class Module {
       Module(
           kLightBlue,
           kGrey,
-          kBackgroundColor,
+          kLightBackground,
           Icons.lock_outline_rounded,
           'Module 2',
           kBlue,

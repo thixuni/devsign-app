@@ -11,7 +11,7 @@ class FeaturedCourses extends StatelessWidget {
     return Container(
         child: Column(
       children: [
-        CategoryTitle('Top of the Week', 'View all'),
+        SectionTitle('Popular Courses', 'View all'),
         Container(
           height: 300,
           child: ListView.separated(

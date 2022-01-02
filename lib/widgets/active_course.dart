@@ -11,30 +11,33 @@ class ActiveCourse extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          CategoryTitle('Last Active Course', 'View all'),
+          SectionTitle('Last Active Course', 'View all'),
           Container(
             margin: EdgeInsets.all(25),
             decoration: BoxDecoration(
-                color: kOffWhite,
+                color: Theme.of(context).backgroundColor,
                 border: Border.all(color: kGrey, width: 0.5),
                 borderRadius: BorderRadius.circular(8)),
             child: Row(
               children: [
                 Row(
                   children: [
+                    SizedBox(width: 5),
                     Container(
                         padding: EdgeInsets.all(20.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Course Name', style: kTertiaryTitleBold),
-                            Text('2 lessons left', style: kTertiaryText),
+                            Text('Course Name',
+                                style: Theme.of(context).textTheme.bodyText1),
+                            Text('2 lessons left',
+                                style: Theme.of(context).textTheme.subtitle2),
                           ],
                         ))
                   ],
                 ),
                 SizedBox(
-                  width: 80,
+                  width: 100,
                 ),
                 CircularPercentIndicator(
                   progressColor: kPink,

@@ -14,38 +14,45 @@ class CourseDesc extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(
+            height: 10,
+          ),
+          Text(course.courseTitle, style: kSecTitleBold),
+          SizedBox(
+            height: 10,
+          ),
           Row(children: [
-            Image.asset(
-              course.authorImage,
-              width: 30,
-            ),
             Text(
               course.authorName,
-              style: kSecTextBold.copyWith(color: kGrey),
+              style: kSecTextBold.copyWith(color: kPink),
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 15),
               height: 5,
               width: 5,
-              decoration: BoxDecoration(color: kGrey, shape: BoxShape.circle),
-            ),
-            Icon(
-              Icons.access_time_filled,
-              color: kGrey,
-              size: 30,
+              decoration: BoxDecoration(color: kPink, shape: BoxShape.circle),
             ),
             SizedBox(
               width: 5,
             ),
             Text(
               '2h 22min',
-              style: kSecTextBold.copyWith(color: kGrey),
+              style: kSecTextBold.copyWith(color: kPink),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 15),
+              height: 5,
+              width: 5,
+              decoration: BoxDecoration(color: kPink, shape: BoxShape.circle),
+            ),
+            SizedBox(
+              width: 5,
+            ),
+            Text(
+              '150 points',
+              style: kSecTextBold.copyWith(color: kPink),
             ),
           ]),
-          SizedBox(
-            height: 10,
-          ),
-          Text(course.courseTitle, style: kSecTitleBold),
           SizedBox(height: 10),
           Text(
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit sollicitudin enim, eget congue mi mollis in. Vestibulum lacus leo, pulvinar a magna elementum, elementum malesuada purus.",

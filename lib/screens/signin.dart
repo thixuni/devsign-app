@@ -1,28 +1,24 @@
 import 'package:course_app/constants/colors.dart';
 import 'package:course_app/constants/fonts.dart';
+import 'package:course_app/controllers/auth_controller.dart';
 import 'package:course_app/screens/signup.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'home/home.dart';
 
-class LoginScreen extends StatefulWidget {
-  @override
-  _LoginScreenState createState() => _LoginScreenState();
-}
+class LoginScreen extends GetWidget<AuthController> {
+  LoginScreen({Key? key}) : super(key: key);
 
-class _LoginScreenState extends State<LoginScreen> {
-  String? email;
-  String? password;
-  final _auth = FirebaseAuth.instance;
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      color: kBackgroundColor,
+        body: SafeArea(
+            child: Container(
+      color: kLightBackground,
       child: ListView(
         children: [
           Stack(
@@ -32,12 +28,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 'assets/images/login-bg-img.png',
               ),
               Container(
-                transform: Matrix4.translationValues(0, -140, 0),
+                transform: Matrix4.translationValues(0, -150, 0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      'Learn to\ndesign and code apps',
+                      'Unlock possibilities',
                       style: kMainTitle.copyWith(color: kWhite),
                       textAlign: TextAlign.center,
                     ),
@@ -45,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 5,
                     ),
                     Text(
-                      'Complete courses in your own pace\n and get the best knowledge!',
+                      'Get inspiration, listen to Lo-Fi and complete your courses at your own pace',
                       style: kSecText.copyWith(color: kWhite),
                       textAlign: TextAlign.center,
                     ),
@@ -61,10 +57,9 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text('Sign in to',
-                      style: kSecTitleBold.copyWith(color: kBlack)),
+                  Text('Sign in to', style: kPrimaryTitleBold),
                   Text('Start Learning',
-                      style: kSecTitleBold.copyWith(color: kPink)),
+                      style: kPrimaryTitleBold.copyWith(color: kPink)),
                   SizedBox(height: 20),
                   Container(
                     height: 150,
@@ -88,6 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 padding: EdgeInsets.only(
                                     top: 5, right: 16, left: 16),
                                 child: TextField(
+                                  controller: emailController,
                                   cursorColor: kBlue,
                                   decoration: InputDecoration(
                                       icon: Icon(
@@ -99,9 +95,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                       //placeholder text style
                                       labelText: "Email Address",
                                       hintStyle:
-                                          kSecText.copyWith(color: kGrey)),
+                                          kPrimaryText.copyWith(color: kGrey)),
                                   //typing text style
-                                  style: TextStyle(color: kBlack),
+                                  style: kPrimaryText.copyWith(color: kBlack),
                                 ),
                               ),
 
@@ -110,6 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 padding: EdgeInsets.only(
                                     bottom: 5, right: 16, left: 16),
                                 child: TextField(
+                                  controller: passwordController,
                                   cursorColor: kBlue,
                                   obscureText: true, //hide the typing text
                                   decoration: InputDecoration(
@@ -122,9 +119,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                       //placeholder text style
                                       labelText: "Password",
                                       hintStyle:
-                                          kSecText.copyWith(color: kGrey)),
+                                          kPrimaryText.copyWith(color: kGrey)),
                                   //typing text style
-                                  style: TextStyle(color: kBlack),
+                                  style: kPrimaryText.copyWith(color: kBlack),
                                 ),
                               ),
                             ],
@@ -134,58 +131,17 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 5,
                   ),
                   Row(
                     children: [
                       GestureDetector(
                         //async -> Changes the function to an asynchronous function. It runs this function asynchronously in the background
-                        onTap: () async {
-                          try {
-                            await _auth.signInWithEmailAndPassword(
-                                email: email.toString().trim(),
-                                password: password.toString());
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => HomePage(),
-                                  fullscreenDialog: false,
-                                ));
-                          } on FirebaseAuthException catch (err) {
-                            if (err.code == "user-not-found") {
-                              try {
-                                await _auth
-                                    .createUserWithEmailAndPassword(
-                                        email: email.toString().trim(),
-                                        password: password.toString())
-                                    .then((user) => {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    HomePage(),
-                                                fullscreenDialog: false,
-                                              )),
-                                        });
-                              } catch (err) {}
-                            } else {
-                              showDialog(
-                                  context: context,
-                                  builder: (context) {
-                                    return AlertDialog(
-                                      title: Text("Error"),
-                                      content: Text(err.message.toString()),
-                                      actions: [
-                                        FlatButton(
-                                            onPressed: () {
-                                              Navigator.of(context).pop();
-                                            },
-                                            child: Text("Okay"))
-                                      ],
-                                    );
-                                  });
-                            }
-                          }
+                        onTap: () {
+                          Get.put(AuthController());
+                          AuthController.instance.login(
+                              emailController.text.trim(),
+                              passwordController.text.trim());
                         },
                         child: Container(
                           child: Text(
@@ -202,7 +158,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       )
                     ],
                   ),
-                  SizedBox(height: 15),
+                  SizedBox(height: 10),
                   RichText(
                     text: TextSpan(
                         text: "New to DeVsign? ",
@@ -221,6 +177,6 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ],
       ),
-    ));
+    )));
   }
 }

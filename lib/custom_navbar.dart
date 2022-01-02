@@ -37,7 +37,7 @@ class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: kBackgroundColor,
+        backgroundColor: Theme.of(context).backgroundColor,
         body: Container(
           child: widgetOptions.elementAt(currentIndex),
         ),
@@ -53,37 +53,29 @@ class _NavBarState extends State<NavBar> {
           items: <BottomNavyBarItem>[
             BottomNavyBarItem(
                 title: Text("Home"),
-                icon: Icon(
-                  Icons.home_rounded,
-                  size: 25,
-                ),
+                icon: Icon(Icons.home_rounded,
+                    size: 25, color: Theme.of(context).iconTheme.color),
                 textAlign: TextAlign.center,
                 activeColor: kBlue,
                 inactiveColor: kBlack),
             BottomNavyBarItem(
                 title: Text("Courses"),
-                icon: Icon(
-                  Icons.school_rounded,
-                  size: 25,
-                ),
+                icon: Icon(Icons.school_rounded,
+                    size: 25, color: Theme.of(context).iconTheme.color),
                 textAlign: TextAlign.center,
                 activeColor: kBlue,
                 inactiveColor: kBlack),
             BottomNavyBarItem(
                 title: Text("Listen"),
-                icon: Icon(
-                  Icons.headset_rounded,
-                  size: 25,
-                ),
+                icon: Icon(Icons.headset_rounded,
+                    size: 25, color: Theme.of(context).iconTheme.color),
                 textAlign: TextAlign.center,
                 activeColor: kBlue,
                 inactiveColor: kBlack),
             BottomNavyBarItem(
                 title: Text("Profile"),
-                icon: Icon(
-                  Icons.person_rounded,
-                  size: 25,
-                ),
+                icon: Icon(Icons.person_rounded,
+                    size: 25, color: Theme.of(context).iconTheme.color),
                 textAlign: TextAlign.center,
                 activeColor: kBlue,
                 inactiveColor: kBlack),

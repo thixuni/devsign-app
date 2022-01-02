@@ -1,14 +1,15 @@
 import 'package:course_app/constants/colors.dart';
 import 'package:course_app/constants/fonts.dart';
+import 'package:course_app/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
+  String email;
+  ProfilePage({Key? key, required this.email}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     var profileHeader = Column(children: <Widget>[
-      // SizedBox(
-      //   height: 10.0,
-      // ),
       Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -16,7 +17,7 @@ class ProfilePage extends StatelessWidget {
             Container(
               height: 140.0,
               width: 140.0,
-              margin: EdgeInsets.only(top: 60.0),
+              margin: EdgeInsets.only(top: 30.0),
               child: Stack(
                 children: [
                   CircleAvatar(
@@ -53,15 +54,16 @@ class ProfilePage extends StatelessWidget {
         style: kSecTitleBold,
       ),
       Text(
-        'thisu.chamathka@gmail.com',
-        style: kSecText,
+        email,
+        style: kSecText.copyWith(color: kGrey),
       ),
     ]);
 
     //check how to collect points and use them
 
     return Scaffold(
-        body: Column(children: <Widget>[
+        body: SafeArea(
+            child: Column(children: <Widget>[
       profileHeader,
       Expanded(
           child: ListView(
@@ -93,11 +95,16 @@ class ProfilePage extends StatelessWidget {
           borderRadius: BorderRadius.circular(30.0),
           color: kBlue,
         ),
-        child: Center(
-          child: Text('Logout', style: kPrimaryTextBold),
+        child: GestureDetector(
+          onTap: () {
+            AuthController.instance.logout();
+          },
+          child: Center(
+            child: Text('Logout', style: kPrimaryTextBold),
+          ),
         ),
       )
-    ]));
+    ])));
   }
 }
 

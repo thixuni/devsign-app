@@ -96,11 +96,11 @@ class CourseModules extends StatelessWidget {
 }
 
 Container buildButton(
-    IconData icon, String text, Color kBackgroundColor, Color kBlue) {
+    IconData icon, String text, Color kLightBackground, Color kBlue) {
   return Container(
     padding: EdgeInsets.all(10),
     decoration: BoxDecoration(
-      color: kBackgroundColor,
+      color: kLightBackground,
       borderRadius: BorderRadius.circular(20),
     ),
     child: Row(children: [

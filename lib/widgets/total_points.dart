@@ -11,7 +11,7 @@ class TotalPoints extends StatelessWidget {
           Container(
             margin: EdgeInsets.all(25),
             decoration: BoxDecoration(
-                color: kOffWhite,
+                color: Theme.of(context).backgroundColor,
                 border: Border.all(color: kGrey, width: 0.5),
                 borderRadius: BorderRadius.circular(8)),
             child: Row(
@@ -33,7 +33,9 @@ class TotalPoints extends StatelessWidget {
                                   ),
                                   Text(
                                       'You can use these points to access\nPremium Courses!',
-                                      style: kTertiaryText),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .subtitle2),
                                 ]),
                             SizedBox(
                               width: 20,

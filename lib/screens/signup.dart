@@ -1,25 +1,25 @@
 import 'package:course_app/constants/colors.dart';
 import 'package:course_app/constants/fonts.dart';
-import 'package:course_app/screens/signin.dart';
+import 'package:course_app/controllers/auth_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:course_app/controllers/auth_controller.dart';
 import 'home/home.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
+class SignUpScreen extends GetWidget<AuthController> {
+  SignUpScreen({Key? key}) : super(key: key);
 
-  @override
-  _SignUpScreenState createState() => _SignUpScreenState();
-}
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
 
-class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      color: kBackgroundColor,
+        body: SafeArea(
+            child: Container(
+      color: kLightBackground,
       child: ListView(
         children: [
           Stack(
@@ -29,12 +29,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 'assets/images/signup-bg-img.png',
               ),
               Container(
-                transform: Matrix4.translationValues(0, -90, 0),
+                transform: Matrix4.translationValues(0, -110, 0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      'Learn to\ndesign and code apps',
+                      'Learn to\ndesign and code',
                       style: kMainTitle.copyWith(color: kWhite),
                       textAlign: TextAlign.center,
                     ),
@@ -60,11 +60,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 children: [
                   Text(
                     'Create your',
-                    style: kSecTitleBold,
+                    style: kPrimaryTitleBold,
                   ),
                   Text(
                     'DeVsign Account',
-                    style: kSecTitleBold,
+                    style: kPrimaryTitleBold.copyWith(color: kPink),
                   ),
                   SizedBox(height: 20),
                   Container(
@@ -99,9 +99,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       //placeholder text style
                                       labelText: "Full name",
                                       hintStyle:
-                                          kSecText.copyWith(color: kGrey)),
+                                          kPrimaryText.copyWith(color: kGrey)),
                                   //typing text style
-                                  style: TextStyle(color: kBlack),
+                                  style: kPrimaryText.copyWith(color: kBlack),
                                 ),
                               ),
 
@@ -110,6 +110,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 padding: EdgeInsets.only(
                                     top: 5, right: 16, left: 16),
                                 child: TextField(
+                                  controller: emailController,
                                   cursorColor: kBlue,
                                   decoration: InputDecoration(
                                       icon: Icon(
@@ -121,9 +122,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       //placeholder text style
                                       labelText: "Email Address",
                                       hintStyle:
-                                          kSecText.copyWith(color: kGrey)),
+                                          kPrimaryText.copyWith(color: kGrey)),
                                   //typing text style
-                                  style: TextStyle(color: kBlack),
+                                  style: kPrimaryText.copyWith(color: kBlack),
                                 ),
                               ),
 
@@ -132,6 +133,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 padding: EdgeInsets.only(
                                     top: 5, right: 16, left: 16),
                                 child: TextField(
+                                  controller: passwordController,
                                   cursorColor: kBlue,
                                   obscureText: true, //hide the typing text
                                   decoration: InputDecoration(
@@ -144,32 +146,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       //placeholder text style
                                       labelText: "Create Password",
                                       hintStyle:
-                                          kSecText.copyWith(color: kGrey)),
+                                          kPrimaryText.copyWith(color: kGrey)),
                                   //typing text style
-                                  style: TextStyle(color: kBlack),
-                                ),
-                              ),
-
-                              //confirm password
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    bottom: 5, top: 5, right: 16, left: 16),
-                                child: TextField(
-                                  cursorColor: kBlue,
-                                  obscureText: true, //hide the typing text
-                                  decoration: InputDecoration(
-                                      icon: Icon(
-                                        Icons.lock,
-                                        color: kBlue,
-                                        size: 20,
-                                      ),
-                                      border: InputBorder.none,
-                                      //placeholder text style
-                                      labelText: "Confirm Password",
-                                      hintStyle:
-                                          kSecText.copyWith(color: kGrey)),
-                                  //typing text style
-                                  style: TextStyle(color: kBlack),
+                                  style: kPrimaryText.copyWith(color: kBlack),
                                 ),
                               ),
                             ],
@@ -183,17 +162,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   Row(
                     children: [
-                      Container(
-                        child: Text(
-                          'Sign up',
-                          style: kPrimaryTextBold.copyWith(color: kWhite),
+                      GestureDetector(
+                        onTap: () {
+                          Get.put(AuthController());
+                          AuthController.instance.register(
+                              emailController.text.trim(),
+                              passwordController.text.trim());
+                        },
+                        child: Container(
+                          child: Text(
+                            'Sign up',
+                            style: kPrimaryTextBold.copyWith(color: kWhite),
+                          ),
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(14),
+                              color: kBlue),
+                          height: 47,
+                          width: MediaQuery.of(context).size.width * 0.3,
                         ),
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(14),
-                            color: kBlue),
-                        height: 47,
-                        width: MediaQuery.of(context).size.width * 0.3,
                       ),
                     ],
                   ),
@@ -216,6 +203,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
         ],
       ),
-    ));
+    )));
   }
 }
