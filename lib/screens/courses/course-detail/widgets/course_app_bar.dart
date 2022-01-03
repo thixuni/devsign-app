@@ -1,10 +1,11 @@
 import 'package:course_app/constants/colors.dart';
-import 'package:course_app/screens/courses/course-files.dart';
+import 'package:course_app/screens/courses/course-files/course-files.dart';
+import 'package:course_app/screens/courses/course-files/popular-courses.dart';
 import 'package:flutter/material.dart';
 
-class CustomAppBar extends StatelessWidget {
-  final Course course;
-  CustomAppBar(this.course);
+class CourseAppBar extends StatelessWidget {
+  final CourseFiles course;
+  CourseAppBar(this.course);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class CustomAppBar extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(40),
                     child: Image.asset(
-                      course.courseImg,
+                      course.illustration,
                       fit: BoxFit.cover,
                     ),
                   )),

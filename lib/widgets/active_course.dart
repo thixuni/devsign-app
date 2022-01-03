@@ -11,13 +11,12 @@ class ActiveCourse extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          SectionTitle('Last Active Course', 'View all'),
           Container(
-            margin: EdgeInsets.all(25),
+            margin: EdgeInsets.symmetric(horizontal: 25.0, vertical: 25.0),
             decoration: BoxDecoration(
                 color: Theme.of(context).backgroundColor,
                 border: Border.all(color: kGrey, width: 0.5),
-                borderRadius: BorderRadius.circular(8)),
+                borderRadius: BorderRadius.circular(15)),
             child: Row(
               children: [
                 Row(

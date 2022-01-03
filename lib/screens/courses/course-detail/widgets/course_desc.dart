@@ -1,10 +1,11 @@
 import 'package:course_app/constants/colors.dart';
 import 'package:course_app/constants/fonts.dart';
-import 'package:course_app/screens/courses/course-files.dart';
+import 'package:course_app/screens/courses/course-files/course-files.dart';
+import 'package:course_app/screens/courses/course-files/popular-courses.dart';
 import 'package:flutter/material.dart';
 
 class CourseDesc extends StatelessWidget {
-  final Course course;
+  final CourseFiles course;
   CourseDesc(this.course);
 
   @override
@@ -23,7 +24,7 @@ class CourseDesc extends StatelessWidget {
           ),
           Row(children: [
             Text(
-              course.authorName,
+              course.courseAuthor,
               style: kSecTextBold.copyWith(color: kPink),
             ),
             Container(

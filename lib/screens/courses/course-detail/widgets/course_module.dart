@@ -1,6 +1,6 @@
 import 'package:course_app/constants/colors.dart';
 import 'package:course_app/constants/fonts.dart';
-import 'package:course_app/screens/courses/widgets/module.dart';
+import 'package:course_app/screens/courses/course-detail/module-details.dart';
 import 'package:flutter/material.dart';
 
 class CourseModules extends StatelessWidget {

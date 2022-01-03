@@ -6,8 +6,10 @@ class Themes {
   final lightTheme = ThemeData.light().copyWith(
     primaryColor: Colors.grey,
     backgroundColor: kLightBackground,
-    bottomAppBarColor: kOffWhite,
-    colorScheme: ColorScheme.light(),
+    appBarTheme: AppBarTheme(
+      backgroundColor: kLightBackground,
+    ),
+    bottomAppBarColor: kLightBlue,
     brightness: Brightness.light,
     iconTheme: IconThemeData(color: kBlack),
     textTheme: TextTheme(
@@ -27,10 +29,13 @@ class Themes {
   );
 
   final darkTheme = ThemeData.dark().copyWith(
-    primaryColor: Colors.blueGrey[800],
-    backgroundColor: kDarkBackground,
-    colorScheme: ColorScheme.dark(),
-    bottomAppBarColor: kBlack,
+    scaffoldBackgroundColor: kDarkBackground,
+    primaryColor: Colors.blueGrey[900],
+    backgroundColor: kDarkBlue,
+    appBarTheme: AppBarTheme(
+      backgroundColor: kDarkBackground,
+    ),
+    bottomAppBarColor: kDarkBlue,
     iconTheme: IconThemeData(color: kWhite),
     textTheme: TextTheme(
       headline1: kMainTitle.copyWith(color: kWhite),

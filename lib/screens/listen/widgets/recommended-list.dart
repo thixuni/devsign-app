@@ -32,12 +32,10 @@ class RecommendedList extends StatelessWidget {
                           image: AssetImage(podcast.image), fit: BoxFit.cover),
                     ))),
             SizedBox(height: 10),
-            Text(
-              podcast.title,
-              overflow: TextOverflow.ellipsis,
-              style: kPrimaryTextBold,
-            ),
-            Text(podcast.artist, style: kSecText),
+            Text(podcast.title,
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context).textTheme.headline5),
+            Text(podcast.artist, style: Theme.of(context).textTheme.bodyText2),
           ],
         ));
   }

@@ -19,9 +19,7 @@ class _PlayViewState extends State<PlayView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kLightBackground,
       appBar: AppBar(
-        backgroundColor: kLightBackground,
         elevation: 0,
         leading: IconButton(
             icon: Icon(
@@ -58,11 +56,10 @@ class _PlayViewState extends State<PlayView> {
             SizedBox(
               height: 35.0,
             ),
-            Text(widget.podcast.title, style: kSecTitleBold),
-            Text(
-              widget.podcast.artist,
-              style: kSecText,
-            ),
+            Text(widget.podcast.title,
+                style: Theme.of(context).textTheme.headline3),
+            Text(widget.podcast.artist,
+                style: Theme.of(context).textTheme.bodyText2),
             SizedBox(
               height: 15.0,
             ),
@@ -131,12 +128,12 @@ class _PlayViewState extends State<PlayView> {
                   children: [
                     Text(
                       "00.00",
-                      style: kTertiaryText,
+                      style: Theme.of(context).textTheme.subtitle2,
                     ),
                     Spacer(),
                     Text(
                       "05.28",
-                      style: kTertiaryText,
+                      style: Theme.of(context).textTheme.subtitle2,
                     ),
                   ],
                 )),

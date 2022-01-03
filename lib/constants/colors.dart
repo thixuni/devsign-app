@@ -14,4 +14,5 @@ const Color kGrey = Color(0xFFCECECE);
 const Color kLightBackground = Color(0xFFF9F9F9);
 
 //dark mode colors
-const Color kDarkBackground = Color(0xFF4F5A65);
+const Color kDarkBlue = Color(0xFF4F5A65);
+const Color kDarkBackground = Color(0xFF424243);

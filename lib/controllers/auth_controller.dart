@@ -1,6 +1,6 @@
 import 'package:course_app/constants/colors.dart';
 import 'package:course_app/constants/fonts.dart';
-import 'package:course_app/custom_navbar.dart';
+import 'package:course_app/widgets/custom_navbar.dart';
 import 'package:course_app/screens/signin.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';

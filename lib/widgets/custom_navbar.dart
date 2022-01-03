@@ -1,10 +1,12 @@
 import 'package:course_app/constants/colors.dart';
-import 'package:course_app/screens/courses/course.dart';
+import 'package:course_app/screens/courses/course-main/course.dart';
 import 'package:course_app/screens/home/home.dart';
 import 'package:course_app/screens/listen/listen.dart';
 import 'package:course_app/screens/profile/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+
+import '../screens/profile/profile.dart';
 
 class NavBar extends StatefulWidget {
   @override

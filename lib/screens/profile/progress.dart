@@ -2,6 +2,7 @@ import 'package:course_app/constants/colors.dart';
 import 'package:course_app/constants/fonts.dart';
 import 'package:course_app/controllers/auth_controller.dart';
 import 'package:course_app/widgets/active_course.dart';
+import 'package:course_app/widgets/total_points.dart';
 import 'package:flutter/material.dart';
 
 class userProgress extends StatelessWidget {
@@ -36,6 +37,7 @@ class userProgress extends StatelessWidget {
               height: 20,
             ),
             ActiveCourse(),
+            TotalPoints(),
           ],
         ),
       )),

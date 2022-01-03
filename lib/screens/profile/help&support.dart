@@ -1,5 +1,5 @@
 import 'package:course_app/constants/fonts.dart';
-import 'package:course_app/screens/courses/course-files.dart';
+import 'package:course_app/screens/courses/course-files/popular-courses.dart';
 import 'package:course_app/screens/home/widgets/course_item.dart';
 import 'package:course_app/widgets/search_input.dart';
 import 'package:flutter/material.dart';

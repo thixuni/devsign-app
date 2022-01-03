@@ -12,7 +12,7 @@ var kMainTitle = TextStyle(
 //theme -> headline2
 var kPrimaryTitleBold = TextStyle(
     fontSize: 24.0,
-    fontWeight: FontWeight.w900,
+    fontWeight: FontWeight.w700,
     color: kBlack,
     fontFamily: 'Poppins',
     decoration: TextDecoration.none);
@@ -27,7 +27,7 @@ var kPrimaryTitleMed = TextStyle(
 //theme -> headline3
 var kSecTitleBold = TextStyle(
     fontSize: 20.0,
-    fontWeight: FontWeight.w900,
+    fontWeight: FontWeight.w700,
     color: kBlack,
     fontFamily: 'Poppins',
     decoration: TextDecoration.none);
@@ -42,7 +42,7 @@ var kSecTitleMed = TextStyle(
 //theme -> headline4
 var kTertiaryTitleBold = TextStyle(
     fontSize: 18.0,
-    fontWeight: FontWeight.w900,
+    fontWeight: FontWeight.w700,
     color: kBlack,
     fontFamily: 'Poppins',
     decoration: TextDecoration.none);

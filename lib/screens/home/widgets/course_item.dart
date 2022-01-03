@@ -1,10 +1,10 @@
 import 'package:course_app/constants/colors.dart';
-import 'package:course_app/screens/courses/course-files.dart';
-import 'package:course_app/screens/courses/detail.dart';
+import 'package:course_app/screens/courses/course-files/course-files.dart';
+import 'package:course_app/screens/courses/course-detail/course-detail.dart';
 import 'package:flutter/material.dart';
 
 class CourseItem extends StatelessWidget {
-  final Course course;
+  final CourseFiles course;
 
   const CourseItem(this.course);
 
@@ -26,7 +26,7 @@ class CourseItem extends StatelessWidget {
                   borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20)),
-                  child: Image.asset(course.courseImg, fit: BoxFit.fitWidth),
+                  child: Image.asset(course.illustration, fit: BoxFit.fitWidth),
                 ),
               ),
               Expanded(
@@ -37,9 +37,10 @@ class CourseItem extends StatelessWidget {
                     SizedBox(height: 15),
                     Row(
                       children: [
-                        Image.asset(course.authorImage, width: 20),
+                        Image.asset(course.courseAuthor, width: 20),
                         SizedBox(width: 5),
-                        Text(course.authorName, style: TextStyle(fontSize: 14))
+                        Text(course.courseAuthor,
+                            style: TextStyle(fontSize: 14))
                       ],
                     ),
                     SizedBox(height: 5),
